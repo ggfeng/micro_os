@@ -1,0 +1,166 @@
+menu "LIBS Configure"
+
+config LIBC_ENABLE
+
+     bool "Enable C Library"
+     depends on LIBS_ENABLE
+     default n
+     help
+        c library
+
+if LIBC_ENABLE
+source  "lib/libc/Kconfig"
+endif
+
+config LIBTEST_ENABLE
+
+     bool "Enable lib test"
+     depends on LIBS_ENABLE
+     default y  if LIBS_ENABLE
+     help
+       enable libtest  
+
+config FREERTOS_ENABLE
+
+     bool "Enable FREERTOS"
+     depends on LIBS_ENABLE
+     default n  
+     help
+       enable freertos  
+
+if FREERTOS_ENABLE
+source  "lib/FreeRTOS/Kconfig"
+endif
+
+config LIST_ENABLE
+
+     bool "Enable List"
+     depends on LIBS_ENABLE
+     default n 
+     help
+       enable List
+
+config SHELL_ENABLE
+
+     bool "Enable Shell"
+     depends on LIBS_ENABLE
+     select LIST_ENABLE
+
+     select YODALITE_PRINTF_ENABLE if LIBC_ENABLE
+
+     help
+       enable shell 
+
+config CJSON_ENABLE
+
+     bool "Enable CJSON"
+     depends on LIBS_ENABLE
+     default n
+     select YODALITE_STRING_ENABLE if LIBC_ENABLE
+
+     help
+       enable cjson
+
+config BM_ENABLE
+
+     bool "Enable Buffer Manager"
+     depends on LIBS_ENABLE
+     default n
+     help
+       enable bm
+
+config FATFS_ENABLE
+
+     bool "Enable FATFS"
+     depends on LIBS_ENABLE
+     default n
+     select YODALITE_STRING_ENABLE if LIBC_ENABLE
+
+     help
+       enable fatfs 
+
+if FATFS_ENABLE
+source  "lib/fatfs/Kconfig"
+endif
+
+config LWIP_ENABLE
+
+     bool "Enable LWIP"
+     depends on LIBS_ENABLE
+     default n
+     help
+       enable lwip 
+
+config NETTOOL_ENABLE
+
+     bool "Enable nettool"
+#    depends on LWIP_ENABLE
+     default n
+     help
+       enable nettool 
+
+if NETTOOL_ENABLE
+source  "lib/nettool/Kconfig"
+endif
+
+
+config ELOOP_ENABLE
+
+     bool "Enable eloop"
+     depends on OSAL_ENABLE
+     default n
+     help
+       enable eloop
+
+config PROPERTY_ENABLE
+
+     bool "Enable property"
+     select FATFS_ENABLE
+     default n
+     help
+       enable property 
+
+config LIBAES_ENABLE
+
+     bool "Enable libaes"
+     depends on LIBS_ENABLE
+     default n
+     help
+       enable libaes 
+
+config LIBMD5_ENABLE
+
+     bool "Enable libmd5"
+     depends on LIBS_ENABLE
+     default n
+     help
+       enable libmd5 
+
+config LIBBASE64_ENABLE
+
+     bool "Enable lib base64"
+     depends on LIBS_ENABLE
+     default n
+     help
+       enable lib base64 
+
+config LIBRSA_ENABLE
+
+     bool "Enable lib rsa"
+     depends on LIBS_ENABLE
+     default n
+     help
+       enable lib rsa 
+
+config MEM_EXT_ENABLE
+     bool "Enable lib mem_ext"
+     depends on LIBS_ENABLE
+     default n
+     help
+       enable mem ext
+
+if MEM_EXT_ENABLE
+source  "lib/mem_ext/Kconfig"
+endif
+endmenu
+

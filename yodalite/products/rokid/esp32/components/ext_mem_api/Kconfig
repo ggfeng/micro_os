@@ -1,0 +1,7 @@
+menu "Yodalite Externel Memory Hardware"
+
+config EXTERNEL_MEMORY_HARDWARE_ENABLE
+bool "Enable externle fatfs Hardware"
+default "y"
+
+endmenu

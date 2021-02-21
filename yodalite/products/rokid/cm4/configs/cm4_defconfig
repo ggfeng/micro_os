@@ -1,0 +1,65 @@
+#
+# Automatically generated file; DO NOT EDIT.
+# YODALITE AIoT Development Framework Configuration
+#
+
+#
+# SDK MCU Configuration
+#
+CONFIG_ARM=y
+# CONFIG_LX6 is not set
+CONFIG_STM32F407ZG=y
+# CONFIG_STM32F072CBY is not set
+CONFIG_DISCOVERY=y
+
+#
+# SDK Build Format
+#
+CONFIG_SDK_BUILD_LIBA=y
+# CONFIG_SDK_BUILD_EXE is not set
+
+#
+# SDK Tool Configuration
+#
+CONFIG_TOOLPREFIX="arm-none-eabi-"
+CONFIG_MAKE_WARN_UNDEFINED_VARIABLES=y
+
+#
+# Compiler options
+#
+CONFIG_OPTIMIZATION_ASSERTIONS_ENABLED=y
+# CONFIG_OPTIMIZATION_ASSERTIONS_SILENT is not set
+# CONFIG_OPTIMIZATION_ASSERTIONS_DISABLED is not set
+
+#
+# SDK Component Configuration
+#
+# CONFIG_AIAL_ENABLE is not set
+# CONFIG_APP_ENABLE is not set
+# CONFIG_HAPI_ENABLE is not set
+# CONFIG_HARDWARE_ENABLE is not set
+CONFIG_LIBS_ENABLE=y
+
+#
+# LIBS Configure
+#
+# CONFIG_LIBC_ENABLE is not set
+CONFIG_LIBTEST_ENABLE=y
+CONFIG_FREERTOS_ENABLE=y
+
+#
+# FREERTSO HARDWARE Configure
+#
+CONFIG_ARM_CM4F=y
+# CONFIG_LIST_ENABLE is not set
+# CONFIG_SHELL_ENABLE is not set
+# CONFIG_CJSON_ENABLE is not set
+# CONFIG_FAT32_ENABLE is not set
+CONFIG_OSAL_ENABLE=y
+
+#
+# FREERTOS HAL Configure
+#
+CONFIG_FREERTOS_HAL=y
+# CONFIG_PRODUCTS_ENABLE is not set
+# CONFIG_TOOLS_ENABLE is not set

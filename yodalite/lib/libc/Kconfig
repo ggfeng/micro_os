@@ -1,0 +1,75 @@
+config YODALITE_MALLOC_ENABLE
+     bool "Enable Yodalite Malloc"
+     depends on LIBC_ENABLE
+     default n 
+     help 
+       Enable Yodalite Malloc
+
+config MALLOC_SPLIT_THRESH
+     int "Malloc Split Threshold"
+     range 4 64
+     default 8
+     depends on YODALITE_MALLOC_ENABLE
+     help 
+       Malloc Split Threshold
+
+config MALLOC_ALIGN_BYTES
+     int  "Malloc Align Bytes"
+     range 4 64
+     default 8
+     depends on YODALITE_MALLOC_ENABLE
+     help 
+       Malloc Align Bytes
+
+config MALLOC_BLOCK_COUNTS
+     int "Malloc Block Counts"
+     range 16 256
+     default 64
+     depends on YODALITE_MALLOC_ENABLE
+     help 
+       Malloc Block Counts
+
+if YODALITE_MALLOC_ENABLE
+
+choice
+    prompt "MALLOC POOL SOURCE"
+    default ABSOLUT
+
+    config ABSOLUT
+    bool "ABSOLUT"
+
+    config GLOBAL
+    bool "GLOBAL"
+
+endchoice
+
+endif
+
+config MALLOC_POOL_BASE
+     hex "Malloc Pool Base"
+     depends on YODALITE_MALLOC_ENABLE && ABSOLUT
+     default 0x10000000 
+     help 
+       Malloc Pool Base
+
+config MALLOC_POOL_SIZE
+     hex "Malloc Pool Size"
+     range 0x100  0x10000000
+     default 0x400 
+     depends on YODALITE_MALLOC_ENABLE
+     help 
+       Malloc Pool Size
+
+config YODALITE_PRINTF_ENABLE
+     bool "Enable Yodalite Printf"
+     depends on LIBC_ENABLE
+     default n 
+     help 
+       Enable Yodalite Printf
+
+config YODALITE_STRING_ENABLE
+     bool "Enable Yodalite String"
+     depends on LIBC_ENABLE
+     default n
+     help 
+       Enable Yodalite String 

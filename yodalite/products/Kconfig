@@ -1,0 +1,12 @@
+menu "PRODUCTS Configure"
+
+config ROKID_PRODUCTS 
+
+     bool "ROKID PRODUCTS"
+     depends on PRODUCTS_ENABLE
+     default n 
+     help
+       ROKID PRODUCTS  
+
+endmenu
+

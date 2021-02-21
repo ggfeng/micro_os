@@ -1,0 +1,7 @@
+menu "ROKID_ASR_LIBRARY"
+
+config ROKID_ASR_ENABLE
+bool "Enable Rokid ASR"
+default "y"
+
+endmenu

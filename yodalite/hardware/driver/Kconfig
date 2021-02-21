@@ -1,0 +1,57 @@
+menu "Driver Configure"
+
+config DRIVER_BASE_ENABLE
+
+    bool "DRIVER_BASE ENABLE"
+    depends on DRIVER_ENABLE
+    default n
+    help
+        DRIVER_BASE ENABLE
+
+config DRIVER_USBHUB_ENABLE
+    bool "DRIVER_USBHUB ENABLE"
+    depends on DRIVER_ENABLE
+    default n
+    help
+	DRIVER_USBHUB ENABLE
+
+config DRIVER_ISL97900_ENABLE
+    bool "DRIVER_ISL97900 ENABLE"
+    depends on DRIVER_ENABLE
+    default n
+    help
+	DRIVER_ISL97900 ENABLE
+
+config DRIVER_LIGHTSENSOR_ENABLE
+    bool "DRIVER_LIGHTSENSOR ENABLE"
+    default n
+    help
+	DRIVER_LIGHTSENSOR ENABLE
+
+config DRIVER_OP2220_ENABLE
+    bool "DRIVER_OP2220 ENABLE"
+    default n
+    help
+	DRIVER_OP2220 ENABLE
+
+config DRIVER_TOUCH_ENABLE
+    bool "DRIVER_TOUCH ENABLE"
+    default n
+    help
+        DRIVER_TOUCH ENABLE
+
+config DRIVER_IMU_ENABLE
+    bool "DRIVER_IMU ENABLE"
+    default n
+    help
+        DRIVER_IMU ENABLE
+
+config DRIVER_PSENSOR_ENABLE
+    bool "DRIVER_PSENSOR ENABLE"
+    default n
+    help
+        DRIVER_PSENSOR ENABLE
+
+
+endmenu
+

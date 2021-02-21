@@ -1,0 +1,277 @@
+#
+# For a description of the syntax of this configuration file,
+# see kconfig/kconfig-language.txt.
+#
+mainmenu "YODALITE AIoT Development Framework Configuration"
+
+menu "SDK MCU Configuration"
+
+choice
+    prompt "Architecture Select"
+    default LX6
+
+    config ARM
+    bool "ARM"
+
+    config LX6
+    bool "LX6"
+
+endchoice
+
+choice
+    prompt "CPU Select"
+    default ESP32
+
+    config STM32F407ZG
+    bool "STM32F407ZG"
+    select ARM_CM4F
+    depends on ARM
+
+    config STM32F411CEYx
+    bool "STM32F411CEYx"
+    depends on ARM
+	
+    config STM32F072CBY
+    bool "STM32F072CBY"
+    depends on ARM
+
+    config XR871GT
+    bool "XR871GT"
+    depends on ARM
+
+    config XR872AT
+    bool "XR872AT"
+    depends on ARM
+
+    config ESP32
+    bool "ESP32"
+    depends on LX6
+endchoice
+
+choice 
+   prompt "BOARD Select"
+   default ESP32_LyraT
+
+   config ESP32_LyraT
+   bool "ESP32_LyraT"
+   depends on ESP32
+
+   config KENOBI
+   bool "KENOBI"
+   depends on STM32F072CBY
+
+   config LUKE
+   bool "LUKE"
+   depends on STM32F411CEYx
+
+   config DISCOVERY
+   bool "DISCOVERY"
+   depends on STM32F407ZG
+
+   config XR871
+   bool "XR871"
+   depends on XR871GT
+
+   config XR872
+   bool "XR872"
+   depends on XR872AT
+endchoice
+    
+endmenu 
+
+menu "SDK Build Format"
+
+choice SDK_BUILD_FORMAT
+    prompt "SDK Build Format"
+    default SDK_BUILD_LIBA 
+    help
+      SDK build as static lib or execute file 
+
+    config SDK_BUILD_LIBA   
+ 	    bool "liba"
+    config SDK_BUILD_EXE
+            bool "exe"
+endchoice
+
+endmenu
+
+menu "SDK General Character"
+
+config PLATFORM_UART_INTERFACE 
+     bool "platform uart interface"
+     default n
+     help
+       platform uart interface 
+
+config REALLOC_NO_SUPPORT 
+     bool "REALLOC NOT support"
+     default n 
+     help
+       realloc not support 
+
+
+config SPRINF_NO_FLOAT_SUPPORT 
+     bool "sprintf no float support"
+     default n
+     help
+       sprinf no float 
+
+
+endmenu
+
+menu "SDK Tool Configuration"
+
+config TOOLPREFIX
+    string "Compiler toolchain path/prefix"
+    default "arm-none-eabi-"
+    help
+        The prefix/path that is used to call the toolchain. The default setting assumes
+        a crosstool-ng gcc setup that is in your PATH.
+
+config MAKE_WARN_UNDEFINED_VARIABLES
+    bool "'make' warns on undefined variables"
+    default "y"
+    help
+        Adds --warn-undefined-variables to MAKEFLAGS. This causes make to
+        print a warning any time an undefined variable is referenced.
+
+        This option helps find places where a variable reference is misspelled
+        or otherwise missing, but it can be unwanted if you have Makefiles which
+        depend on undefined variables expanding to an empty string.
+
+endmenu  # SDK tool configuration
+
+menu "Compiler options"
+
+choice OPTIMIZATION_COMPILER
+     bool  "Optimization Level"
+    default OPTIMIZATION_LEVEL_DEBUG
+    help
+        This option sets compiler optimization level (gcc -O argument).
+
+        - for "Release" setting, -Os flag is added to CFLAGS.
+        - for "Debug" setting, -Og flag is added to CFLAGS.
+
+        "Release" with -Os produces smaller & faster compiled code but it
+        may be harder to correlated code addresses to source files when debugging.
+
+        To add custom optimization settings, set CFLAGS and/or CPPFLAGS
+        in project makefile, before including $(IDF_PATH)/make/project.mk. Note that
+        custom optimization levels may be unsupported.
+
+	config OPTIMIZATION_LEVEL_DEBUG
+    	    bool "Debug (-Og)"
+        config OPTIMIZATION_LEVEL_RELEASE
+            bool "Release (-Os)"
+endchoice
+
+choice OPTIMIZATION_ASSERTION_LEVEL
+    prompt "Assertion level"
+    default OPTIMIZATION_ASSERTIONS_ENABLED
+    help
+        Assertions can be:
+
+        - Enabled. Failure will print verbose assertion details. This is the default.
+
+        - Set to "silent" to save code size (failed assertions will abort() but user
+          needs to use the aborting address to find the line number with the failed assertion.)
+
+        - Disabled entirely (not recommended for most configurations.) -DNDEBUG is added
+          to CPPFLAGS in this case.
+
+config OPTIMIZATION_ASSERTIONS_ENABLED
+    prompt "Enabled"
+    bool
+    help
+        Enable assertions. Assertion content and line number will be printed on failure.
+
+config OPTIMIZATION_ASSERTIONS_SILENT
+    prompt "Silent (saves code size)"
+    bool
+    help
+        Enable silent assertions. Failed assertions will abort(), user needs to
+        use the aborting address to find the line number with the failed assertion.
+
+config OPTIMIZATION_ASSERTIONS_DISABLED
+    prompt "Disabled (sets -DNDEBUG)"
+    bool
+    help
+        If assertions are disabled, -DNDEBUG is added to CPPFLAGS.
+
+endchoice # assertions
+endmenu
+
+menu "SDK Component Configuration"
+
+config AIAL_ENABLE
+    bool "Enable AIAL"
+    default n
+    help
+       Enable AIAL
+
+if AIAL_ENABLE
+ source "aial/Kconfig"
+endif
+
+
+config APP_ENABLE
+     bool "Enable APP"
+     default n
+     help 
+        Enable APP
+
+if APP_ENABLE
+ source "app/Kconfig"
+endif
+
+config HAPI_ENABLE
+     bool "Enable Application High API"
+     default n
+     help
+        Enable Application High API
+
+if HAPI_ENABLE
+ source "hapi/Kconfig"
+endif
+
+config HARDWARE_ENABLE
+     bool "Enable Hardware"
+     default n
+     help 
+       Enable Hardware
+
+if HARDWARE_ENABLE
+ source "hardware/Kconfig"
+endif
+
+config LIBS_ENABLE
+     bool "Enable Tree parts Library"
+     default y
+     help 
+       Enable Tree parts Library
+
+if LIBS_ENABLE
+ source "lib/Kconfig"
+endif
+
+config OSAL_ENABLE
+     bool "OS Hal Layer"
+     default n
+     help 
+       OS Hal Layer
+
+if OSAL_ENABLE
+ source "osal/Kconfig"
+endif
+
+config PRODUCTS_ENABLE
+     bool "PRODUCTS ENABLE"
+     default n
+     help 
+       PRODUCTS ENABLE
+
+if PRODUCTS_ENABLE
+ source "products/Kconfig"
+endif
+endmenu	
+

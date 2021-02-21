@@ -1,0 +1,109 @@
+menu "FREERTOS HAL Configure"
+
+config FREERTOS_HAL
+     bool "FREERTOS_HAL"
+     depends on OSAL_ENABLE
+     default n 
+     help
+       freertos hal  
+
+config SUPPORT_STATIC_ALLOCATION
+     bool "freertos support static allocation"
+     default y 
+     help
+       freertos support static allocation 
+
+config RTOS_VERSION_LOWER_THAN_8_2_3
+     bool "freertos version lower than 8.2.3"
+     default n
+     help
+       freertos version lower than 8.2.3 
+
+
+config OSAL_PTHREAD
+     bool "osal pthread"
+     default n
+     help
+       osal pthread 
+
+
+config OSAL_PTHREAD_STACK_SIZE 
+     hex "osal pthread stack size"
+     depends on OSAL_PTHREAD
+     default 0x800 
+     help 
+       osal pthread stack size
+
+config OSAL_PTHREAD_WITH_DIFF_NAME
+     bool "osal pthread with different name"
+     depends on OSAL_PTHREAD
+     default n
+     help
+	   osal pthread with different name
+
+
+config OSAL_PTHREAD_MUTEX
+     bool "osal pthread mutex"
+	 default n
+	 help
+	    osal pthread mutex
+
+config OSAL_PTHREAD_BARRIER
+	bool "osal pthread barrier"
+	default n
+	help
+		osal pthread barrier
+
+config OSAL_PTHREAD_COND
+    bool "osal pthread cond"
+	depends on OSAL_PTHREAD_MUTEX
+	default n
+	help 
+	   osal pthread cond
+
+config OSAL_CLOCK
+     bool "osal clock"
+     default n
+     help
+       osal clock 
+
+config OSAL_UNISTD
+     bool "osal unistd"
+     default n
+     help
+       osal unistd 
+
+config OSAL_MQ
+     bool "osal mq"
+     default n
+     help
+       osal mq 
+
+config OSAL_MQ_PTHREAD
+     bool "osal mq pthread"
+     depends on OSAL_MQ
+     default n
+     help
+       osal mq pthread
+
+config OSAL_SEMAPHORE
+     bool "osal semaphore"
+	 default n
+	 help
+	   osal semaphore
+
+config OSAL_TIMER
+     bool "osal timer"
+	 default n
+	 help 
+	    osal timer
+
+config OSAL_SCHED
+	bool "osal sched"
+	default n
+	help
+	  osal sched
+
+
+endmenu
+

@@ -1,0 +1,274 @@
+menu "APP Configure"
+
+config FTM_ENABLE
+
+     bool "FTM ENABLE"
+     depends on APP_ENABLE 
+     depends on FACTORY_ENABLE 
+     default n
+     help
+         FTM ENABLE
+
+config OTA_ENABLE
+
+     bool "OTA ENABLE"
+     depends on APP_ENABLE
+     default n
+     help
+         OTA ENABLE
+
+config FLORA_TEST_ENABLE
+
+     bool "FLORA_TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on FLORA_LITE_ENABLE
+     depends on APP_ENABLE
+     default n
+     help
+         FLORA_TEST ENABLE
+
+config NETMGR_TEST_ENABLE
+
+     bool "NETMGR_TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     depends on NETMGR_LITE_ENABLE
+     default n
+     help
+         NETMGR_TEST ENABLE
+
+config ELOOP_TEST_ENABLE
+
+     bool "ELOOP_TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     depends on ELOOP_ENABLE
+     default n
+     help
+         ELOOP_TEST ENABLE
+
+config FATFS_TEST_ENABLE
+     bool "FATFS_TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     depends on FATFS_ENABLE
+     default n
+     help
+         FATFS_TEST ENABLE
+
+config CJSON_TEST_ENABLE
+     bool "CJSON_TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     depends on CJSON_ENABLE
+     default n
+     help
+         CJSON_TEST ENABLE
+
+config LIB_TEST_ENABLE
+     bool "LIB_TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     depends on LIBTEST_ENABLE
+     default n
+     help
+         LIB_TEST ENABLE
+
+config NETTOOL_TEST_ENABLE
+     bool "NET_TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     depends on NETTOOL_ENABLE
+     default n
+     help
+         NETTOOL_TEST ENABLE
+
+config PROPERTY_TEST_ENABLE
+     bool "PROPERTY_TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     depends on PROPERTY_ENABLE
+     default n
+     help
+         PROPERTY_TEST ENABLE
+
+config WIFI_TEST_ENABLE
+     bool "WIFI_TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     depends on WIFI_HAL_ENABLE
+     default n
+     help
+         WIFI_TEST ENABLE
+
+config INPUT_TEST_ENABLE
+     bool "INPUT_TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on PAL_INPUT_ENABLE
+     depends on APP_ENABLE
+     default n
+     help
+         INPUT_TEST ENABLE
+
+config AES_TEST_ENABLE
+     bool "AES_TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on LIBAES_ENABLE
+     depends on APP_ENABLE
+     default n
+     help
+         AES_TEST ENABLE
+
+config MD5_TEST_ENABLE
+     bool "MD5_TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on LIBMD5_ENABLE
+     depends on APP_ENABLE
+     default n
+     help
+         Md5_TEST ENABLE
+
+config BASE64_TEST_ENABLE
+     bool "BASE64_TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on LIBBASE64_ENABLE
+     depends on APP_ENABLE
+     default n
+     help
+         Base64_TEST ENABLE
+
+config AUTH_TEST_ENABLE
+     bool "AUTH_TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on AUTH_ENABLE
+     depends on APP_ENABLE
+     default n
+     help
+         AUTH_TEST ENABLE
+
+config MEMEXT_TEST_ENABLE
+     bool "MEMEXT TEST ENABLE"
+     depends on MEM_EXT_ENABLE
+     default n
+     help
+         MEM_EXT_TEST ENABLE
+
+config BT_TEST_ENABLE
+     bool "BT_TEST ENABLE"
+     depends on SHELL_ENABLE
+	 depends on BLUETOOTH_HAL_ENABLE
+     depends on APP_ENABLE
+     default n
+     help
+         BT_TEST ENABLE
+
+config BTMGR_TEST_ENABLE
+
+     bool "BTMGR_TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     depends on BLUETOOTHMGR_ENABLE 
+     default n
+     help
+         BTMGR_TEST ENABLE
+
+config ASOUND_TEST_ENABLE
+     bool "ASOUND TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     default n
+     help 
+        ASOUND_TEST_ENABLE
+
+config MQTT_TEST_ENABLE
+     bool "MQTT TEST ENABLE"
+     depends on LWIP_ENABLE
+     default n
+     help 
+        MQTT_TEST_ENABLE
+
+config SOCKET_TEST_ENABLE
+     bool "SOCKET TEST ENABLE"
+     default n
+     help 
+        SOCKET_TEST_ENABLE
+
+config APPMGR_TEST_ENABLE
+     bool "APPMGR TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     depends on APPMGR_ENABLE
+     default n
+     help
+         APPMGR_TEST_ENABLE
+
+config PRTTN_INFO_SHOW_ENABLE
+     bool "PRTTN INFO SHOW ENABLE "
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     default n
+     help
+         PRTTN INFO SHOW ENABLE 
+
+config ANDLINK_TEST_ENABLE
+     bool "ANDLINK TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     depends on ANDLINK_ENABLE
+	 default n
+	 help  
+	   ANDLINK TEST ENABLE
+
+config BLINK_TEST_ENABLE
+     bool "BLINK TEST ENABLE "
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     default n
+     help
+         BLINK TEST ENABLE 
+
+config POSIX_TEST_ENABLE     
+     bool "POSIX TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     default n
+     help
+         POSIX TEST ENABLE
+
+config PTHREAD_TEST_ENABLE     
+     bool "PTHREAD TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     depends on POSIX_TEST_ENABLE
+     default n
+     help
+         PTHREAD TEST ENABLE
+
+config COND_TEST_ENABLE     
+     bool "COND TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     depends on POSIX_TEST_ENABLE
+     default n
+     help
+         COND TEST ENABLE
+
+config TASK_TEST_ENABLE     
+     bool "TASK TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     default n
+     help
+         TASK TEST ENABLE
+
+config MQ_TEST_ENABLE     
+     bool "MQ TEST ENABLE"
+     depends on SHELL_ENABLE
+     depends on APP_ENABLE
+     depends on POSIX_TEST_ENABLE
+     default n
+     help
+         MQ TEST ENABLE
+
+endmenu
+

@@ -1,0 +1,81 @@
+menu "MODULES Configure"
+
+config MODULES_LEDS_ENABLE
+
+    bool "MODULES_LEDS ENABLE"
+    depends on MODULES_ENABLE
+    default n
+    help
+        MODULES_LEDS ENABLE
+
+config BOARD_LED_NUMS
+
+    int "led nums used"
+    depends on MODULES_LEDS_ENABLE
+    default 1
+    help
+        BOARD_LED NUMS
+
+config MODULES_MICARRAY_ENABLE
+
+    bool "MODULES_MICARRAY ENABLE"
+    depends on MODULES_ENABLE
+    default n
+    help
+        MODULES_MICARRAY ENABLE
+
+config BOARD_MIC_CHANNEL
+
+    int "MIC nums used"
+    depends on MODULES_MICARRAY_ENABLE
+    default 2
+    help
+        BOARD_MIC CHANNEL
+
+config BOARD_SOUND_CARDID
+
+    int "sound card id"
+    depends on MODULES_MICARRAY_ENABLE
+    default 0
+    help
+        BOARD_SOUND CARDID
+
+config BOARD_CAPTURE_DEVICEID
+
+    int "capture device id"
+    depends on MODULES_MICARRAY_ENABLE
+    default 3
+    help
+        BOARD_CAPTURE DEVICEID
+
+config MIC_SAMPLE_RATE
+
+    int "mic sample rate"
+    depends on MODULES_MICARRAY_ENABLE
+    default 48000
+    help
+        MIC_SAMPLE RATE
+
+config WIFI_HAL_ENABLE
+	bool "WIFI_HAL_ENABLE"
+	depends on MODULES_ENABLE
+	default n
+	help
+	  WIFI_HAL_ENABLE
+
+config WIFI_SMART_SNIFFER_ENABLE
+	bool "WIFI_SMART_SNIFFER_ENABLE"
+	depends on WIFI_HAL_ENABLE
+	default n
+	help
+	  WIFI_SMART_SNIFFER_ENABLE
+
+config BLUETOOTH_HAL_ENABLE
+	bool "BLUETOOTH_HAL_ENABLE"
+	depends on MODULES_ENABLE
+	default n
+	help
+	  BLUETOOTH_HAL_ENABLE
+
+endmenu
+

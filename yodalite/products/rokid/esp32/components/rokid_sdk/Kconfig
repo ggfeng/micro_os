@@ -1,0 +1,7 @@
+menu "ROKID_SDK_LIBRARY"
+
+config ROKID_SDK_ENABLE
+bool "Enable Rokid Sdk"
+default "y"
+
+endmenu

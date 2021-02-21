@@ -1,0 +1,7 @@
+menu "Yodalite Fatfs Hardware"
+
+config FATFS_HARDWARE_ENABLE
+bool "Enable Fatfs Hardware"
+default "y"
+
+endmenu

@@ -1,0 +1,23 @@
+
+config FATFS_SECTOR_SIZE
+     int "fatfs sector size"
+     range 512  4096
+     default 4096 
+     depends on FATFS_ENABLE
+     help 
+       fatfs sector size:512 1024 2048 4096 
+
+config FATFS_FLASH_BASE
+     hex "fatfs flash base"
+     default 0x140000
+     depends on FATFS_ENABLE
+     help 
+       fatfs flash base
+
+config FATFS_FLASH_SIZE
+     hex "fatfs flash size"
+     range 0x10000  0x200000
+     default 0xc0000 
+     depends on FATFS_ENABLE
+     help 
+       fatfs flash size

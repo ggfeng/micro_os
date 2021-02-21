@@ -1,0 +1,21 @@
+config KEY_PART_FLASH_NAME
+    string  "key parttion location"
+    depends on PAL_FLASH_ENABLE
+    default "spiflash/0"
+    help
+       key parttion location
+
+config KEY_PART_ADDR
+     hex "key partition base addr"
+     depends on PAL_FLASH_ENABLE
+     default 0xe000 
+     help 
+       key partition base addr
+
+config KEY_PART_SIZE
+     hex "key partition size"
+     range 0x100  0x10000
+     default 0x1000 
+     depends on PAL_FLASH_ENABLE
+     help 
+       key partition size 

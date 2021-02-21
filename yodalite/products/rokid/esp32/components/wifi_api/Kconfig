@@ -1,0 +1,7 @@
+menu "WIFI_API_ENABLE"
+
+config WIFI_API_ENABLE
+bool "Enable wifi api"
+default "y"
+
+endmenu

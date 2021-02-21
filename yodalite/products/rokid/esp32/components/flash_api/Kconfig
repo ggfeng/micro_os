@@ -1,0 +1,7 @@
+menu "Yodalite flash Hardware"
+
+config FLASH_HARDWARE_ENABLE
+bool "Enable flash Hardware"
+default "y"
+
+endmenu

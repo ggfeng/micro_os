@@ -1,0 +1,83 @@
+menu "PAL Configure"
+
+config PAL_GPIO_ENABLE
+
+    bool "PAL_GPIO ENABLE"
+    depends on PAL_ENABLE
+    default n
+    help
+        PAL_GPIO ENABLE
+
+config PAL_I2C_ENABLE
+
+    bool "PAL_I2C ENABLE"
+    depends on PAL_ENABLE
+    default n
+    help
+        PAL_I2C ENABLE
+
+config PAL_USB_ENABLE
+
+    bool "PAL_USB ENABLE"
+    depends on PAL_ENABLE
+    default n
+    help
+        PAL_USB ENABLE
+
+config PAL_ASOUND_ENABLE
+
+    bool "PAL_ASOUND ENABLE"
+    depends on PAL_ENABLE
+    default n
+    help
+        PAL_ASOUND ENABLE
+
+config PAL_IRQ_ENABLE
+
+    bool "PAL_IRQ ENABLE"
+    depends on PAL_ENABLE
+    default n
+    help
+        PAL_IRQ ENABLE
+
+config PAL_AUTH_ENABLE
+
+    bool "PAL_AUTH ENABLE"
+    depends on PAL_ENABLE
+    default n
+    help
+        PAL_AUTH ENABLE
+
+config PAL_SPI_ENABLE
+
+    bool "PAL_SPI ENABLE"
+    depends on PAL_ENABLE
+    default n
+    help
+        PAL_SPI ENABLE
+
+config PAL_UART_ENABLE
+
+    bool "PAL_UART ENABLE"
+    depends on PAL_ENABLE
+    default n
+    help
+        PAL_UART ENABLE
+
+config PAL_INPUT_ENABLE
+
+    bool "PAL_INPUT ENABLE"
+    depends on PAL_ENABLE
+    depends on FLORA_LITE_ENABLE
+    default n
+    help
+        PAL_INPUT ENABLE
+
+config PAL_FLASH_ENABLE
+    bool "PAL_FLASH ENABLE"
+    depends on PAL_ENABLE
+    default n
+    help
+        PAL_FLASH ENABLE
+endmenu
+

@@ -1,0 +1,7 @@
+config MEM_EXT_DEBUG
+
+     bool "Enable mem_ext debug"
+     depends on MEM_EXT_ENABLE
+     default n
+     help
+       enable mem_ext debug

@@ -1,0 +1,47 @@
+menu "HARDWARE Configure"
+
+config LIB_HARDWARE_ENABLE
+
+     bool "Enable lib hardware"
+     depends on HARDWARE_ENABLE
+     default n 
+     help
+      Enable lib hardware
+
+config MODULES_ENABLE
+
+     bool "MODULES ENABLE"
+     depends on HARDWARE_ENABLE 
+     default n 
+     help
+         MODULES ENABLE
+
+if MODULES_ENABLE
+source "hardware/modules/Kconfig"
+endif
+
+config PAL_ENABLE
+
+     bool "PAL ENABLE"
+     depends on HARDWARE_ENABLE 
+     default n 
+     help
+         PAL ENABLE
+
+if PAL_ENABLE
+source "hardware/pal/Kconfig"
+endif
+
+config DRIVER_ENABLE
+
+     bool "DRIVER ENABLE"
+     depends on HARDWARE_ENABLE
+     default n
+     help
+         DRIVER ENABLE
+
+if DRIVER_ENABLE
+source "hardware/driver/Kconfig"
+endif
+
+endmenu

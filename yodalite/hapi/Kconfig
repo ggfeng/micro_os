@@ -1,0 +1,182 @@
+menu "HAPI Configure"
+
+
+config AUDIO_OUT_ENABLE
+
+     bool "AUDIO OUT ENABLE"
+     depends on HAPI_ENABLE
+     default n
+     help
+         AUDIO OUT ENABLE
+
+config BATTERYMGR_ENABLE
+
+     bool "BATTERYMGR  ENABLE"
+     depends on HAPI_ENABLE 
+     default n 
+     help
+         AUTHMGR ENABLE
+
+
+config BLUETOOTHMGR_ENABLE 
+
+     bool "BLUETOOTHMGR ENABLE"
+     depends on HAPI_ENABLE 
+     default n 
+     help
+         BLUETOOTHMGR ENABLE
+
+config DISPLAY_ENABLE 
+
+     bool "DISPLAY ENABLE"
+     depends on HAPI_ENABLE 
+     default n 
+     help
+         DISPLAY ENABLE
+
+config INPUT_ENABLE 
+
+     bool "INPUT ENABLE"
+     depends on HAPI_ENABLE 
+     default n 
+     help
+         INPUT ENABLE
+
+config LUMEN_LIGHT_ENABLE
+
+     bool "LUMEN ENABLE"
+     depends on HAPI_ENABLE 
+     default n 
+     help
+         LUMEN ENABLE
+
+config PIPE_LINE_ENABLE
+
+     bool "PIPE LINE ENABLE"
+     depends on HAPI_ENABLE 
+     default n 
+     help
+         PIPE LINE ENABLE
+
+config POWERMGR_ENABLE
+
+     bool "POWERMGR ENABLE"
+     depends on HAPI_ENABLE 
+     default n 
+     help
+         POWERMGR ENABLE
+
+config RECOVERY_ENABLE
+
+     bool "RECOVERY ENABLE"
+     depends on HAPI_ENABLE 
+     default n 
+     help
+         RECOVERY ENABLE
+
+config SENSORMGR_ENABLE
+
+     bool "SENSORMGR ENABLE"
+     depends on HAPI_ENABLE 
+     default n 
+     help
+         SENSORMGR ENABLE
+
+config VIDEO_IN_ENABLE
+
+     bool "VIDEO IN ENABLE"
+     depends on HAPI_ENABLE 
+     default n 
+     help
+         VIDEO IN ENABLE
+
+config FLORA_LITE_ENABLE
+
+     bool "FLORA_LITE ENABLE"
+     depends on HAPI_ENABLE
+     default n
+     help
+         FLORA_LITE ENABLE
+
+config NETMGR_LITE_ENABLE
+
+     bool "NETMGR LITE ENABLE"
+     select FLORA_LITE_ENABLE
+     select ELOOP_ENABLE
+     select PROPERTY_ENABLE
+
+     depends on HAPI_ENABLE
+     default n
+     help
+         NETMGR ENABLE
+
+config ACTIVATION_ENABLE
+
+     bool "ACTIVATION ENABLE"
+     select FLORA_LITE_ENABLE
+     select ELOOP_ENABLE
+     select PROPERTY_ENABLE
+
+     depends on HAPI_ENABLE
+     default n
+     help
+         ACTIVATION ENABLE
+
+config ANDLINK_ENABLE
+     bool "ANDLINK ENABLE"
+
+     help
+         ANDLINK ENABLE
+
+config APPMGR_ENABLE
+
+     bool "APPMGR ENABLE"
+     select FLORA_LITE_ENABLE
+     depends on HAPI_ENABLE
+     default n
+     help
+         APPMGR ENABLE
+
+config AUTH_ENABLE
+
+     bool "AUTH ENABLE"
+     depends on HAPI_ENABLE 
+	 depends on LIBAES_ENABLE
+	 depends on LIBRSA_ENABLE
+	 depends on LIBBASE64_ENABLE
+     default n
+     help
+         Auth check
+
+config FACTORY_ENABLE 
+     bool "FACTORY ENABLE"
+     depends on PAL_FLASH_ENABLE
+     default n
+     help
+         factory enable 
+config ASOUND_ENABLE
+     bool "ASOUND_ENABLE"
+     depends on HAPI_ENABLE
+     default n
+     help 
+        ASOUND ENABLE
+
+config RECORD_KWS_ENABLE
+     bool "RECORD_KWS_ENABLE"
+     depends on HAPI_ENABLE
+     default n
+     help 
+       record_kws ENABLE
+
+config SMART_CONFIG_ENABLE
+     bool "Enable smart config"
+     depends on HAPI_ENABLE
+     default n
+     help
+       enable smart config
+
+
+if FACTORY_ENABLE
+source  "hapi/factory/Kconfig"
+endif
+endmenu

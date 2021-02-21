@@ -1,0 +1,14 @@
+config SNTP_TIMER 
+     bool "Enable sntp timer"
+     depends on NETTOOL_ENABLE
+     default n
+     help
+       enable sntp timer 
+
+config OPT_RCVTIMEO_INT
+     bool "Enable opt recv timeo int"
+     depends on NETTOOL_ENABLE
+     default n
+     help
+       enable nettool 
+
